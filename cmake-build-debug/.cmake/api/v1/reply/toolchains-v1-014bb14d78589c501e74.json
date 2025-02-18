@@ -1,0 +1,93 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/include",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : [],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : []
+				},
+				"path" : "D:/\u043a\u043b\u0438\u043e\u043d\u0447\u0438\u043a/CLion 2024.2.2/bin/mingw/bin/gcc.exe",
+				"version" : "13.1.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/include",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+						"D:/\u2568\u2551\u2568\u2557\u2568\u2555\u2568\u255b\u2568\u255c\u2564\u0417\u2568\u2555\u2568\u2551/CLion 2024.2.2/bin/mingw/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : [],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : []
+				},
+				"path" : "D:/\u043a\u043b\u0438\u043e\u043d\u0447\u0438\u043a/CLion 2024.2.2/bin/mingw/bin/g++.exe",
+				"version" : "13.1.0"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm",
+				"ccm",
+				"cxxm",
+				"c++m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "D:/\u043a\u043b\u0438\u043e\u043d\u0447\u0438\u043a/CLion 2024.2.2/bin/mingw/bin/windres.exe"
+			},
+			"language" : "RC",
+			"sourceFileExtensions" : 
+			[
+				"rc",
+				"RC"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
