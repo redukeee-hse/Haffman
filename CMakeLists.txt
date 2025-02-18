@@ -3,4 +3,7 @@ project(haf)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(haf main.cpp)
+add_executable(haf main.cpp
+        Huffman.h
+        funct.cpp
+)
