@@ -4,10 +4,14 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-
+#include "Huffman.h"
 using namespace std;
+
+#define SIZE    256
 int main() {
-    FILE* file = fopen("saratov.txt", "rb");
+    FILE* file = fopen("X:/Repositories/Haffman/cmake-build-debug/saratov.txt", "rb");
+    
+    FILE* fileForRead = fopen("X:/Repositories/Haffman/cmake-build-debug/saratov.txt", "rb");
     if (!file) {
         cout << "File can't be opened" << endl;
         exit(1);
@@ -15,19 +19,27 @@ int main() {
     fseek(file, 0, SEEK_END);
     long leng = ftell(file);
     fseek(file, 0, SEEK_SET);
-    map<char,int> periodich;
-    vector<pair<int, char>> sort_freq;
+
+    NODE* List[SIZE] = { NULL };
+    for (int i = 0; i < SIZE; ++i)
+    {
+        List[i] = (NODE*)malloc(sizeof(NODE));
+        List[i]->symbol = '\0';
+        List[i]->freq = 0;
+    }
+    
     for (int i = 0; i < leng; ++i)
     {
-        periodich[fgetc(file)]++;
+        char ch = fgetc(fileForRead);
+
+        List[(unsigned char)ch]->symbol = ch;
+        List[(unsigned char)ch]->freq++;
+        
     }
-    for (auto r = periodich.begin(); r!=periodich.end(); r++){
-        sort_freq.push_back({r->second, r->first});
-    }
-    sort(sort_freq.begin(), sort_freq.end());
-    for (auto r = sort_freq.begin(); r!=sort_freq.end(); r++){
-        cout << r->first << " "<< r->second << endl;
-    }
+    puts("1");
+    for (int i = 0; i < SIZE; ++i)
+        cout << (int)List[i]->symbol << " " << List[i]->freq << "\n";
+
     fclose(file);
     return 0;
 }
