@@ -7,7 +7,7 @@ long int getFileLength(FILE* file)
     if (!file)   
     {  
         std::cout << "File can't be opened" << std::endl;  
-        return -1; 
+        exit(1);
     }  
 
     fseek(file, 0, SEEK_END); // Перемещаем указатель в конец файла  

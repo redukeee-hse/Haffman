@@ -13,14 +13,14 @@ using namespace std;
 
 
 int main() {  
-    const char* filename = "X:/Repositories/Haffman/cmake-build-debug/saratov.txt"; // Путь к файлу  
+    const char* filename = "saratov.txt"; // Путь к файлу
     FILE *file = fopen(filename, "rb"); 
 
     long int length = getFileLength(file); // Длина файла 
 
    
     //NODE* List[SIZE] = { NULL }; //создали массив указателей на нод
-    vector<NODE*> tree;
+    vector<NODE*> tree; //саратов, я тебе не прощу то, что ты мое древо поменял на какое-то три....... иди в жопу
     for (int i = 0; i < SIZE; ++i)
     {
         tree.push_back((NODE*)malloc(sizeof(NODE))); //создали сами ноды
@@ -37,10 +37,34 @@ int main() {
         tree[(unsigned char)ch]->freq++;
         
     }
-    sort(tree.begin(), tree.end(), comp);
-    for (int i = 0; i < SIZE; ++i)
+    auto sizetree = size(tree); // штоб по сто раз не напрягался проц
+    for (int i = 0; i < sizetree; ++i) // удалили пустышки
+    {
+        if (tree[i]->freq == 0)
+        {
+            tree.erase(tree.begin() + i);
+            i--;
+            sizetree--;
+        }
+    }
+    stable_sort(tree.begin(), tree.end(), comp);
+    //for (int i = 0; i < size(tree); ++i)
+        //cout << tree[i]->symbol << " " << tree[i]->freq << "\n";
+    // cout << size(tree) << endl;
+    for (int i = 0; i < (sizetree - 1); i = i + 2)
+    {
+        tree.push_back((NODE*)malloc(sizeof(NODE)));
+        tree[sizetree]->symbol = 0;
+        tree[sizetree]->freq = (tree[i]->freq + tree[i + 1]->freq);
+        tree[sizetree]->left = tree[i];
+        tree[sizetree]->right = tree[i+1];
+        tree[i]->next = tree[sizetree];
+        tree[i + 1]->next = tree[sizetree];
+        sizetree++;
+        stable_sort(tree.begin(), tree.end(), comp);
+    }
+    for (int i = 0; i < size(tree); ++i)
         cout << tree[i]->symbol << " " << tree[i]->freq << "\n";
-
     fclose(file);
     return 0;
 }

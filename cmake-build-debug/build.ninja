@@ -55,8 +55,8 @@ build CMakeFiles/haf.dir/main.cpp.obj: CXX_COMPILER__haf_unscanned_Debug C$:/Use
   OBJECT_DIR = CMakeFiles\haf.dir
   OBJECT_FILE_DIR = CMakeFiles\haf.dir
 
-build CMakeFiles/haf.dir/funct.cpp.obj: CXX_COMPILER__haf_unscanned_Debug C$:/Users/anabu/CLionProjects/haf/funct.cpp || cmake_object_order_depends_target_haf
-  DEP_FILE = CMakeFiles\haf.dir\funct.cpp.obj.d
+build CMakeFiles/haf.dir/Huffman.cpp.obj: CXX_COMPILER__haf_unscanned_Debug C$:/Users/anabu/CLionProjects/haf/Huffman.cpp || cmake_object_order_depends_target_haf
+  DEP_FILE = CMakeFiles\haf.dir\Huffman.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\haf.dir
   OBJECT_FILE_DIR = CMakeFiles\haf.dir
@@ -69,7 +69,7 @@ build CMakeFiles/haf.dir/funct.cpp.obj: CXX_COMPILER__haf_unscanned_Debug C$:/Us
 #############################################
 # Link the executable haf.exe
 
-build haf.exe: CXX_EXECUTABLE_LINKER__haf_Debug CMakeFiles/haf.dir/main.cpp.obj CMakeFiles/haf.dir/funct.cpp.obj
+build haf.exe: CXX_EXECUTABLE_LINKER__haf_Debug CMakeFiles/haf.dir/main.cpp.obj CMakeFiles/haf.dir/Huffman.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\haf.dir
