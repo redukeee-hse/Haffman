@@ -2,41 +2,44 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <cstdio>
 #include <algorithm>
 #include "Huffman.h"
-using namespace std;
-#define SIZE    256
-int main() {
-    FILE* file = fopen("saratov.txt", "rb");
-    if (!file) {
-        cout << "File can't be opened" << endl;
-        exit(1);
-    }
-    fseek(file, 0, SEEK_END);
-    long leng = ftell(file);
-    fseek(file, 0, SEEK_SET);
 
+using namespace std;
+
+#define SIZE    256
+
+
+
+int main() {  
+    const char* filename = "X:/Repositories/Haffman/cmake-build-debug/saratov.txt"; // Путь к файлу  
+    FILE *file = fopen(filename, "rb"); 
+
+    long int length = getFileLength(file); // Длина файла 
+
+   
     //NODE* List[SIZE] = { NULL }; //создали массив указателей на нод
-    vector<NODE*> drevo;
+    vector<NODE*> tree;
     for (int i = 0; i < SIZE; ++i)
     {
-        drevo.push_back((NODE*)malloc(sizeof(NODE))); //создали сами ноды
-        drevo[i]->symbol = 0;
-        drevo[i]->freq = 0;
+        tree.push_back((NODE*)malloc(sizeof(NODE))); //создали сами ноды
+        tree[i]->symbol = 0;
+        tree[i]->freq = 0;
     }
 
-    for (int i = 0; i < leng; ++i)
+    for (int i = 0; i < length; ++i)
     {
         char ch = fgetc(file);
-        if (drevo[(unsigned char)ch]->freq == 0){
-            drevo[(unsigned char)ch]->symbol = ch;
+        if (tree[(unsigned char)ch]->freq == 0){
+            tree[(unsigned char)ch]->symbol = ch;
         }
-        drevo[(unsigned char)ch]->freq++;
+        tree[(unsigned char)ch]->freq++;
         
     }
-    sort(drevo.begin(), drevo.end(), comp);
+    sort(tree.begin(), tree.end(), comp);
     for (int i = 0; i < SIZE; ++i)
-        cout << drevo[i]->symbol << " " << drevo[i]->freq << "\n";
+        cout << tree[i]->symbol << " " << tree[i]->freq << "\n";
 
     fclose(file);
     return 0;

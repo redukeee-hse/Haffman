@@ -1,6 +1,7 @@
 #ifndef HUFFMAN_H
 #define HUFFMAN_H
 #define CODE_SIZE   8
+#include <iostream> //  КАКОГО ХУЯ НАХУЙ ТЫ ТУТ НУЖЕН ЕБАНОЕ ТЫ УЕБИЩЕ
 typedef struct Node
 {
     bool isSymbol;
@@ -11,9 +12,8 @@ typedef struct Node
     struct Node* right;
     struct Node* next;
 }NODE;
-#endif // HUFFMAN_H
 
-#ifndef COMP
-#define COMP
 bool comp(NODE* a, NODE* b);
+long int getFileLength(FILE* file);
+
 #endif
