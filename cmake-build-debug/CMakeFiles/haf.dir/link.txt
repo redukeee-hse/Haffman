@@ -1,0 +1,3 @@
+"X:\CLion 2024.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\haf.dir/objects.a
+"X:\CLion 2024.3.2\bin\mingw\bin\ar.exe" qc CMakeFiles\haf.dir/objects.a @CMakeFiles\haf.dir\objects1.rsp
+"X:\CLion 2024.3.2\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\haf.dir/objects.a -Wl,--no-whole-archive -o haf.exe -Wl,--out-implib,libhaf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\haf.dir\linkLibs.rsp

@@ -1,3 +1,3 @@
-C:/Users/anabu/CLionProjects/haf/cmake-build-debug/CMakeFiles/haf.dir
-C:/Users/anabu/CLionProjects/haf/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/anabu/CLionProjects/haf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+X:/Repositories/Haffman/cmake-build-debug/CMakeFiles/haf.dir
+X:/Repositories/Haffman/cmake-build-debug/CMakeFiles/edit_cache.dir
+X:/Repositories/Haffman/cmake-build-debug/CMakeFiles/rebuild_cache.dir
