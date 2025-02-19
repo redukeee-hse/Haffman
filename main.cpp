@@ -16,26 +16,27 @@ int main() {
     long leng = ftell(file);
     fseek(file, 0, SEEK_SET);
 
-    NODE* List[SIZE] = { NULL }; //создали массив указателей на нод
+    //NODE* List[SIZE] = { NULL }; //создали массив указателей на нод
+    vector<NODE*> drevo;
     for (int i = 0; i < SIZE; ++i)
     {
-        List[i] = (NODE*)malloc(sizeof(NODE)); //создали сами ноды
-        List[i]->symbol = 0;
-        List[i]->freq = 0;
+        drevo.push_back((NODE*)malloc(sizeof(NODE))); //создали сами ноды
+        drevo[i]->symbol = 0;
+        drevo[i]->freq = 0;
     }
 
     for (int i = 0; i < leng; ++i)
     {
         char ch = fgetc(file);
-
-        List[(unsigned char)ch]->symbol = ch;
-        List[(unsigned char)ch]->freq++;
+        if (drevo[(unsigned char)ch]->freq == 0){
+            drevo[(unsigned char)ch]->symbol = ch;
+        }
+        drevo[(unsigned char)ch]->freq++;
         
     }
-    sort(List, List + SIZE, comp);
-
+    sort(drevo.begin(), drevo.end(), comp);
     for (int i = 0; i < SIZE; ++i)
-        cout << List[i]->symbol << " " << List[i]->freq << "\n";
+        cout << drevo[i]->symbol << " " << drevo[i]->freq << "\n";
 
     fclose(file);
     return 0;
