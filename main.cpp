@@ -1,46 +1,35 @@
-#include <iostream>
-#include <vector>
-#include <cstdio>
-#include <algorithm>
 #include "Huffman.h"
-
-
-using namespace std;
-#define SIZE    256
-
+#include <iostream>
+#include <unordered_map>
 
 int main() {
-    const char *filename = "saratov.txt"; // Путь к файлу
-    FILE *file = fopen(filename, "rb");
+    system("chcp 65001");
+    std::string inputFilename;
+    std::cout << "Типочек, ну ка файлик дай:  ";
+    std::cin >> inputFilename;
 
-    long int length = getFileLength(file); // Длина файла
+    std::vector<Node *> nodes = readFileAndCreateNodes(inputFilename);
 
-    vector<Node*> tree; // = initTree(length, SIZE, tree, file); // Создание дерева
+    auto huffmanTree = buildHuffmanTree(nodes);
+    std::unordered_map<char, std::string> huffmanCodes;
 
-    for (int i = 0; i < SIZE; ++i) // Создание нод
-    {
-        tree.push_back((Node*) malloc(sizeof(Node)));
-        tree[i]->symbol = 0;
-        tree[i]->freq = 0;
+    if (!huffmanTree.empty()) {
+        generateHuffmanCodes(huffmanTree.back(), "", huffmanCodes);
+    }
+
+    std::cout << "\nКоды из хеш-таблицы:\n";
+    for (const auto &pair: huffmanCodes) {
+        std::cout << "Символ:" << pair.first << " его код: " << pair.second << std::endl;
     }
 
 
-    for (int i = 0; i < length; ++i) {
-        char ch = fgetc(file);
-        if (tree[(unsigned char) ch]->freq == 0)
-            tree[(unsigned char) ch]->symbol = ch;
-
-        tree[(unsigned char) ch]->freq++;
+    for (Node *node: nodes) {
+        delete node;
     }
 
-    int treeSize = size(tree);
+    if (!huffmanTree.empty()) {
+        delete huffmanTree.back();
+    }
 
-    stable_sort(tree.begin(), tree.end(), comp); // Сортируем вектор
-
-    Node *root = createHuffmanTree(treeSize, tree)[treeSize - 1]; // Указание на корень
-
-    cout << "root: " << root->freq << endl;
-
-    fclose(file);
     return 0;
 }

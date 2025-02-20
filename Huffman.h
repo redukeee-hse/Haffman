@@ -2,29 +2,24 @@
 #define HUFFMAN_H
 
 #include <iostream>
+#include <unordered_map>
 #include <vector>
+#include <string>
 
-using namespace std;
-
-#define CODE_SIZE   256
-typedef struct Node {
-    bool isSymbol;
+struct Node {
     char symbol;
-    char code[CODE_SIZE];
-    int freq;
-    struct Node *left;
-    struct Node *right;
-    struct Node *next;
-} NODE;
+    int frequency;
+    std::string code;
+    Node* left;
+    Node* right;
 
-bool comp(NODE *a, NODE *b);
+    Node(char s, int freq) : symbol(s), frequency(freq), left(nullptr), right(nullptr) {}
+};
 
-long int getFileLength(FILE *file);
+std::vector<Node*> buildHuffmanTree(std::vector<Node*>& nodes);
 
-vector<Node *> createHuffmanTree(int &treeSize, vector<Node *> &tree);
+void generateHuffmanCodes(Node* root, const std::string& code, std::unordered_map<char, std::string>& huffmanCodes);
 
-//  vector<Node *> initTree(long &length, int size, vector<Node *> &tree, FILE *file);
-
-// void clearTree(int &treeSize, vector<Node *> &tree);
+std::vector<Node*> readFileAndCreateNodes(const std::string& filename);
 
 #endif // HUFFMAN_H

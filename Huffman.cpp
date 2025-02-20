@@ -1,75 +1,68 @@
 #include "Huffman.h"
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cstdio>
 #include <algorithm>
+#include <fstream>
 
-using namespace std;
 
-long int getFileLength(FILE *file) {
-    if (!file) {
-        std::cout << "File can't be opened" << std::endl;
+std::vector<Node *> buildHuffmanTree(std::vector<Node *> &nodes) {
+    if (nodes.empty())
+        return {};
+
+    std::vector<Node *> huffmanNodes = nodes;
+
+    while (huffmanNodes.size() > 1) {
+        auto left = huffmanNodes[0];
+        auto right = huffmanNodes[1];
+
+        Node *newNode = new Node('\0', left->frequency + right->frequency);
+        newNode->left = left;
+        newNode->right = right;
+
+        huffmanNodes.erase(huffmanNodes.begin(), huffmanNodes.begin() + 2);
+
+        auto position = lower_bound(huffmanNodes.begin(), huffmanNodes.end(), newNode,
+                                    [](Node *a, Node *b) { return a->frequency < b->frequency; });
+
+        huffmanNodes.insert(position, newNode);
+    }
+
+    return huffmanNodes;
+}
+
+void generateHuffmanCodes(Node *root, const std::string &code, std::unordered_map<char, std::string> &huffmanCodes) {
+    if (!root)
+        return;
+
+    if (root->symbol != '\0') {
+        huffmanCodes[root->symbol] = code;
+        root->code = code;
+        std::cout << "Символ: " << root->symbol << " его код: " << root->code << std::endl;
+    }
+
+    generateHuffmanCodes(root->left, code + "0", huffmanCodes);
+    generateHuffmanCodes(root->right, code + "1", huffmanCodes);
+}
+
+std::vector<Node *> readFileAndCreateNodes(const std::string &filename) {
+    std::ifstream file(filename);
+    std::unordered_map<char, int> frequencyMap;
+
+    if (file) {
+        std::string line;
+        while (std::getline(file, line)) {
+            for (char ch: line)
+                frequencyMap[ch]++;
+        }
+        file.close();
+    } else {
+        std::cerr << "файл не открылся, баран... " << filename << std::endl;
         exit(1);
     }
 
-    fseek(file, 0, SEEK_END);
-    long int length = ftell(file);
-    fseek(file, 0, SEEK_SET);
+    std::vector<Node *> nodes;
+    for (const auto &pair: frequencyMap)
+        nodes.push_back(new Node(pair.first, pair.second));
+    sort(nodes.begin(), nodes.end(), [](Node *a, Node *b) { return a->frequency < b->frequency; });
 
-    return length;
-}
-
-
-bool comp(NODE *a, NODE *b) {
-    return a->freq < b->freq;
-}
-
-vector<Node *> createHuffmanTree(int &treeSize, vector<Node *> &tree) {
-    for (int i = 0; i < (treeSize - 1); i = i + 2) {
-        tree.push_back((NODE *) malloc(sizeof(NODE)));
-        tree[treeSize]->symbol = 0;
-        tree[treeSize]->freq = (tree[i]->freq + tree[i + 1]->freq);
-        tree[treeSize]->left = tree[i];
-        tree[treeSize]->right = tree[i + 1];
-        tree[i]->next = tree[treeSize];
-        tree[i + 1]->next = tree[treeSize];
-        treeSize++;
-        stable_sort(tree.begin(), tree.end(), comp);
-    }
-    for (int i = 0; i < treeSize; ++i) {
-        if (tree[i]->left == nullptr && tree[i]->right == nullptr)
-            tree[i]->isSymbol = true;
-    }
-    return tree;
-}
-
-vector<Node *> initTree(long &length, int size, vector<Node *> &tree, FILE *file) {
-    for (int i = 0; i < size; ++i) // Создание нод
-    {
-        //tree.push_back((Node*) malloc(sizeof(Node))); - ????????
-        tree[i]->symbol = 0;
-        tree[i]->freq = 0;
-    }
-
-    for (int i = 0; i < length; ++i) {
-        char ch = fgetc(file);
-        if (tree[(unsigned char) ch]->freq == 0)
-            tree[(unsigned char) ch]->symbol = ch;
-
-        tree[(unsigned char) ch]->freq++;
-    }
-    return tree;
-}
-
-void clearTree(int &treeSize, vector<Node *> &tree) {
-    for (int i = 0; i < treeSize; ++i) // Чистка
-    {
-        if (tree[i]->freq == 0) {
-            tree.erase(tree.begin() + i);
-            i--;
-            treeSize--;
-        }
-    }
+    return nodes;
 }
 
