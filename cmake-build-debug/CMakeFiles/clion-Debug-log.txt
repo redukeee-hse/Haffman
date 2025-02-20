@@ -1,4 +1,4 @@
 "X:\CLion 2024.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S X:\Repositories\Haffman -B X:\Repositories\Haffman\cmake-build-debug
--- Configuring done (0.1s)
+-- Configuring done (1.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: X:/Repositories/Haffman/cmake-build-debug

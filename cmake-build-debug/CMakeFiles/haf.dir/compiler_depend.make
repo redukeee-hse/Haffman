@@ -183,9 +183,13 @@ CMakeFiles/haf.dir/Huffman.cpp.obj: X:/Repositories/Haffman/Huffman.cpp \
   X:/Repositories/Haffman/Huffman.h
 
 CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/binders.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bit \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/alloc_traits.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
@@ -193,6 +197,9 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono_io.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
@@ -213,8 +220,11 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/iterator_concepts.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/max_size_type.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h \
@@ -225,30 +235,41 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_algobase.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_base.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_cmp.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_util.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_function.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_heap.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_funcs.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_types.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_pair.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf.tcc \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
@@ -256,12 +277,16 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/charconv \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/concepts \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
@@ -270,18 +295,27 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/alloc_traits.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomicity.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/concurrence.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/format \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numbers \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/span \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
@@ -292,6 +326,7 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/variant \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -303,10 +338,13 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
+  X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
   X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
@@ -337,6 +375,7 @@ CMakeFiles/haf.dir/main.cpp.obj: X:/Repositories/Haffman/main.cpp \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/signal.h \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
+  X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
   X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
@@ -356,6 +395,8 @@ X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h:
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bit:
 
@@ -515,11 +556,15 @@ X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h:
 
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits:
+
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc:
 
@@ -534,6 +579,8 @@ X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/
 X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/format:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h:
 
@@ -555,11 +602,15 @@ X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compa
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/concepts:
 
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h:
+
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar:
 
@@ -624,6 +675,8 @@ X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_6
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tuple:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo:
 
@@ -703,6 +756,8 @@ X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/stdlib.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/vadefs.h:
 
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h:
+
 X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/wchar.h:
 
 X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/wctype.h:
@@ -710,3 +765,51 @@ X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/wctype.h:
 X:/Repositories/Haffman/Huffman.h:
 
 X:/Repositories/Haffman/main.cpp:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono_io.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/charconv:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/concurrence.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/span:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/variant:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h:
+
+X:/CLion\ 2024.3.2/bin/mingw/x86_64-w64-mingw32/include/stdint.h:
