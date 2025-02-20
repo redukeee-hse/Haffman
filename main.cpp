@@ -17,9 +17,16 @@ int main() {
         generateHuffmanCodes(huffmanTree.back(), "", huffmanCodes);
     }
 
-    std::cout << "\nКоды из хеш-таблицы:\n";
-    for (const auto &pair: huffmanCodes) {
-        std::cout << "Символ:" << pair.first << " его код: " << pair.second << std::endl;
+
+    std::string compressedFilename = "compressed_output.bin"; // Имя файла для сжатых данных
+    writeEncodedFile(inputFilename, huffmanCodes, compressedFilename);
+
+    for (Node *node: nodes) {
+        delete node;
+    }
+
+    if (!huffmanTree.empty()) {
+        delete huffmanTree.back();
     }
 
 
