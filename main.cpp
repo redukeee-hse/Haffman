@@ -6,28 +6,31 @@ using namespace std;;
 using namespace std::chrono;
 
 int main() {
-    system("chcp 65001");
-    std::string inputFilename;
-    std::cout << "Файл для чтения:  ";
-    std::cin >> inputFilename;
+    system("chcp 65001"); // смена кодировки на UTF8 для консоли
+    string inputFilename;
+    cout << "Файл для чтения:  "; 
+    cin >> inputFilename; // ввод имени файла
 
-    clock_t tStart = clock();
+    clock_t tStart = clock(); // начало замера времени
 
-    std::vector<Node *> nodes = readFileAndCreateNodes(inputFilename);
+    vector<Node *> nodes = readFileAndCreateNodes(inputFilename); //чтение файла и создание нода с частотой и символами
 
     auto huffmanTree = buildHuffmanTree(nodes); // дерево Хаффмана на векторе
-    std::unordered_map<char, std::string> huffmanCodes;
+    unordered_map<char, std::string> huffmanCodes; //создание неупорядоченного по ключам словаря
 
-    if (!huffmanTree.empty()) {
+    if (!huffmanTree.empty()) { //пустое ли?
         generateHuffmanCodes(huffmanTree.back(), "", huffmanCodes); // символ - код
+    }
+    else {
+        exit(1);
     }
 
 
-    std::string compressedFilename = "compressed_output.bin"; // Имя файла для сжатых данных
+    string compressedFilename = "compressed_output.bin"; // Имя файла для сжатых данных
     writeEncodedFile(inputFilename, huffmanCodes, compressedFilename);
-    printf("Time taken to encode: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+    printf("Time taken to encode: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC); //окончание замера времени, вывод на экран
 
-    std::string decodedOutput = "decoded" + inputFilename.substr(inputFilename.find_last_of('.'));
+    string decodedOutput = "decoded" + inputFilename.substr(inputFilename.find_last_of('.')); //вторая функция берет расширение
 
     decode(decodedOutput, compressedFilename);
     printf("Time taken overall: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
