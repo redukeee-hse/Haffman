@@ -9,7 +9,6 @@
 struct Node {
     char symbol;
     int frequency;
-    std::string code;
     Node *left;
     Node *right;
 
@@ -26,5 +25,6 @@ void writeEncodedFile(const std::string &inputFilename,
                       const std::unordered_map<char, std::string> &huffmanCodes,
                       const std::string &compressedFilename);
 
+void decode(const std::string &outputFilename, const std::string &compressedFilename);
 
 #endif // HUFFMAN_H

@@ -1,6 +1,11 @@
 #include "Huffman.h"
 #include <algorithm>
 #include <fstream>
+#include <cstring>
+#include <string>
+#include <bitset>
+#include <time.h>
+#include <bitset>
 
 
 std::vector<Node *> buildHuffmanTree(std::vector<Node *> &nodes) {
@@ -34,7 +39,6 @@ void generateHuffmanCodes(Node *root, const std::string &code, std::unordered_ma
 
     if (root->symbol != '\0') {
         huffmanCodes[root->symbol] = code;
-        root->code = code;
     }
 
     generateHuffmanCodes(root->left, code + "0", huffmanCodes);
@@ -44,14 +48,23 @@ void generateHuffmanCodes(Node *root, const std::string &code, std::unordered_ma
 std::vector<Node *> readFileAndCreateNodes(const std::string &filename) {
     std::ifstream file(filename);
     std::unordered_map<char, int> frequencyMap;
+    
+    // if (file) {
+    //     std::string line;
+    //     while (std::getline(file, line)) {
+    //         for (char ch: line)
+    //             frequencyMap[ch]++;
+    //     }
+    //     file.close(); // без /n 
+
 
     if (file) {
-        std::string line;
-        while (std::getline(file, line)) {
-            for (char ch: line)
-                frequencyMap[ch]++;
+        char ch;
+        while (file.get(ch)) {
+            frequencyMap[ch]++;
         }
-        file.close();
+        file.close(); // с /n
+    
     } else {
         std::cerr << "файл не открылся :( " << filename << std::endl;
         exit(1);
@@ -66,20 +79,32 @@ std::vector<Node *> readFileAndCreateNodes(const std::string &filename) {
 }
 
 void writeEncodedFile(const std::string &inputFilename, const std::unordered_map<char, std::string> &huffmanCodes,
-                      const std::string &compressedFilename) {
+    const std::string &compressedFilename) {
     std::ifstream inputFile(inputFilename);
-
     std::ofstream compressedFile(compressedFilename, std::ios::binary);
+    // FILE* inputFile = fopen(inputFilename.c_str(), "r");
+    // FILE* compressedFile = fopen(compressedFilename.c_str(), "wb");
 
     if (!inputFile) {
         std::cerr << "Не удалось открыть файл для чтения: " << inputFilename << std::endl;
         return;
     }
 
-
     if (!compressedFile) {
         std::cerr << "Не удалось открыть файл для сжатых данных: " << compressedFilename << std::endl;
         return;
+    }
+
+    std::string expansion = inputFilename.substr(inputFilename.find_last_of('.') + 1);
+    int pairs = huffmanCodes.size();
+
+
+    compressedFile << pairs << "\n";
+    compressedFile << expansion << "\n";
+
+    // Запись кодов символов в файл
+    for (const auto &pair : huffmanCodes) {
+        compressedFile << pair.first << pair.second << "\n"; // Символ и его код
     }
 
     char ch;
@@ -94,22 +119,93 @@ void writeEncodedFile(const std::string &inputFilename, const std::unordered_map
     // Запись сжатых данных в двоичный файл
     size_t bitIndex = 0;
     std::vector<unsigned char> buffer;
+    int countByts;
 
     while (bitIndex < encodedStr.size()) {
         unsigned char byte = 0;
         for (int i = 0; i < 8 && bitIndex < encodedStr.size(); ++i, ++bitIndex) {
-            byte = (byte << 1) | (encodedStr[bitIndex] == '1' ? 1 : 0);
-        }
-        buffer.push_back(byte);
+        byte = (byte << 1) | (encodedStr[bitIndex] == '1' ? 1 : 0);
+        countByts = i;
     }
+    buffer.push_back(byte);
+    }
+    compressedFile << countByts << "\n";
 
     compressedFile.write(reinterpret_cast<const char *>(buffer.data()), buffer.size());
     compressedFile.close();
-
     inputFile.close();
-
 
     std::cout << "Сжатые данные были записаны в файл: " << compressedFilename << std::endl;
 }
 
+void decode(const std::string &outputFilename, const std::string &compressedFilename) {
+    FILE* file = fopen(compressedFilename.c_str(), "rb");
+    FILE* fin = fopen(outputFilename.c_str(), "wb");
 
+    std::unordered_map<std::string, char> codes;
+
+    char* pairs = (char*)calloc(50, sizeof(char)); // количество пар вида символ - код
+    fgets(pairs, 50, file);
+    pairs[strlen(pairs) - 1] = '\0'; 
+
+    char* exp = (char*)calloc(4, sizeof(char)); // расширение
+    fgets(exp, 4, file);
+    exp[strlen(exp) - 1] = '\0';
+
+    int pairss = std::stoi(pairs);
+    fgetc(file); // перенос строки
+    
+    for (int i = 0; i < pairss; i++) {
+        char symb = fgetc(file);
+        char c;
+        std::string code;
+        while ((c = fgetc(file)) != '\n') {
+            code += c;
+        }
+        
+        codes.insert({code, symb});
+    }
+
+    int mainByts = fgetc(file) - '0';
+    fgetc(file); // перенос строки
+
+    char c;
+    std::string buff = "";
+
+    while (!feof(file)) {
+        c = fgetc(file);
+        std::bitset<8> bs(c);
+        for (int j = 7; j >= 0; j--){
+            if (bs[j] == 1){
+                buff += "1";
+            } else {
+                buff += "0";
+            }
+
+            if (codes.find(buff) != codes.end()) {
+                char curr = codes.find(buff)->second;
+                fputc(curr, fin);
+                buff.clear();
+            }
+        }
+    }
+
+    const int lastByteEffectiveBit = 1 ;
+    std::bitset<lastByteEffectiveBit> bs(mainByts);
+    for (int j = lastByteEffectiveBit - 1; j >= 0; j--){
+        if (bs[j] == 1){
+            buff += "1";
+        } else {
+            buff += "0";
+        }
+        if (codes.find(buff.c_str()) != codes.end()){
+        
+            char curr = codes.find(buff)->second;
+            fputc(curr, fin);
+            buff.clear(); 
+        }
+    }
+
+    fclose(file);
+    fclose(fin);
+}
