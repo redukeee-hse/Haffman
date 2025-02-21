@@ -29,8 +29,8 @@ int main() {
 
     std::string decodedOutput = "decoded" + inputFilename.substr(inputFilename.find_last_of('.'));
 
-    printf("Time taken overall: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
     decode(decodedOutput, compressedFilename);
+    printf("Time taken overall: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
 
 
     for (auto node: nodes) {
