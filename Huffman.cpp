@@ -7,14 +7,15 @@
 #include <time.h>
 #include <bitset>
 
+using namespace std;
 
-std::vector<Node *> buildHuffmanTree(std::vector<Node *> &nodes) {
-    if (nodes.empty())
-        return {};
+vector<Node *> buildHuffmanTree(vector<Node *> &nodes) {
+    if (nodes.empty()) // пустой ли файл
+        exit(1);
 
-    std::vector<Node *> huffmanNodes = nodes;
+    vector<Node *> huffmanNodes = nodes; // создание доп вектора, из которого будем удалять обработанные элементы
 
-    while (huffmanNodes.size() > 1) {
+    while (huffmanNodes.size() > 1) { 
         auto left = huffmanNodes[0];
         auto right = huffmanNodes[1];
 
@@ -22,18 +23,19 @@ std::vector<Node *> buildHuffmanTree(std::vector<Node *> &nodes) {
         newNode->left = left;
         newNode->right = right;
 
-        huffmanNodes.erase(huffmanNodes.begin(), huffmanNodes.begin() + 2);
+        huffmanNodes.erase(huffmanNodes.begin(), huffmanNodes.begin() + 2); //стираем обработанные
 
-        auto position = lower_bound(huffmanNodes.begin(), huffmanNodes.end(), newNode,
-                                    [](Node *a, Node *b) { return a->frequency < b->frequency; });
-
+        auto position = lower_bound(huffmanNodes.begin(), huffmanNodes.end(), newNode, 
+                                    [](Node *a, Node *b) { return a->frequency < b->frequency; }); //лямбда функция, условие сортировки
+//определяем позицию для нового нода. lower bound ищет первое не меньшее элемента 
+// и возвращает позицию, таким образом новый элемент будет всегда слева равных ему
         huffmanNodes.insert(position, newNode);
     }
 
     return huffmanNodes;
 }
 
-void generateHuffmanCodes(Node *root, const std::string &code, std::unordered_map<char, std::string> &huffmanCodes) {
+void generateHuffmanCodes(Node *root, const string &code, unordered_map<char, string> &huffmanCodes) {
     if (!root)
         return;
 
@@ -45,13 +47,13 @@ void generateHuffmanCodes(Node *root, const std::string &code, std::unordered_ma
     generateHuffmanCodes(root->right, code + "1", huffmanCodes);
 }
 
-std::vector<Node *> readFileAndCreateNodes(const std::string &filename) {
-    std::ifstream file(filename);
-    std::unordered_map<char, int> frequencyMap;
+vector<Node *> readFileAndCreateNodes(const string &filename) {
+    ifstream file(filename);
+    unordered_map<char, int> frequencyMap; 
     
     // if (file) {
-    //     std::string line;
-    //     while (std::getline(file, line)) {
+    //     string line;
+    //     while (getline(file, line)) {
     //         for (char ch: line)
     //             frequencyMap[ch]++;
     //     }
@@ -60,17 +62,17 @@ std::vector<Node *> readFileAndCreateNodes(const std::string &filename) {
 
     if (file) {
         char ch;
-        while (file.get(ch)) {
+        while (file.get(ch)) { //get берет символ, записывает в ch и сдвигает указатель в файле
             frequencyMap[ch]++;
         }
         file.close(); // с /n
     
     } else {
-        std::cerr << "файл не открылся :( " << filename << std::endl;
+        cerr << "файл не открылся :( " << filename << endl;
         exit(1);
     }
 
-    std::vector<Node *> nodes;
+    vector<Node *> nodes;
     for (const auto &pair: frequencyMap)
         nodes.push_back(new Node(pair.first, pair.second));
     sort(nodes.begin(), nodes.end(), [](Node *a, Node *b) { return a->frequency < b->frequency; });
@@ -78,24 +80,24 @@ std::vector<Node *> readFileAndCreateNodes(const std::string &filename) {
     return nodes;
 }
 
-void writeEncodedFile(const std::string &inputFilename, const std::unordered_map<char, std::string> &huffmanCodes,
-    const std::string &compressedFilename) {
-    std::ifstream inputFile(inputFilename);
-    std::ofstream compressedFile(compressedFilename, std::ios::binary);
+void writeEncodedFile(const string &inputFilename, const unordered_map<char, string> &huffmanCodes,
+    const string &compressedFilename) {
+    ifstream inputFile(inputFilename);
+    ofstream compressedFile(compressedFilename, std::ios::binary);
     // FILE* inputFile = fopen(inputFilename.c_str(), "r");
     // FILE* compressedFile = fopen(compressedFilename.c_str(), "wb");
 
     if (!inputFile) {
-        std::cerr << "Не удалось открыть файл для чтения: " << inputFilename << std::endl;
+        cerr << "Не удалось открыть файл для чтения: " << inputFilename << endl;
         return;
     }
 
     if (!compressedFile) {
-        std::cerr << "Не удалось открыть файл для сжатых данных: " << compressedFilename << std::endl;
+        cerr << "Не удалось открыть файл для сжатых данных: " << compressedFilename << endl;
         return;
     }
 
-    std::string expansion = inputFilename.substr(inputFilename.find_last_of('.') + 1);
+    string expansion = inputFilename.substr(inputFilename.find_last_of('.') + 1);
     int pairs = huffmanCodes.size();
 
 
@@ -108,7 +110,7 @@ void writeEncodedFile(const std::string &inputFilename, const std::unordered_map
     }
 
     char ch;
-    std::string encodedStr = "";
+    string encodedStr = "";
     while (inputFile.get(ch)) {
         auto it = huffmanCodes.find(ch);
         if (it != huffmanCodes.end()) {
@@ -118,7 +120,7 @@ void writeEncodedFile(const std::string &inputFilename, const std::unordered_map
 
     // Запись сжатых данных в двоичный файл
     size_t bitIndex = 0;
-    std::vector<unsigned char> buffer;
+    vector<unsigned char> buffer;
     int countByts;
 
     while (bitIndex < encodedStr.size()) {
@@ -135,14 +137,14 @@ void writeEncodedFile(const std::string &inputFilename, const std::unordered_map
     compressedFile.close();
     inputFile.close();
 
-    std::cout << "Сжатые данные были записаны в файл: " << compressedFilename << std::endl;
+    cout << "Сжатые данные были записаны в файл: " << compressedFilename << endl;
 }
 
-void decode(const std::string &outputFilename, const std::string &compressedFilename) {
+void decode(const string &outputFilename, const string &compressedFilename) {
     FILE* file = fopen(compressedFilename.c_str(), "rb");
     FILE* fin = fopen(outputFilename.c_str(), "wb");
 
-    std::unordered_map<std::string, char> codes;
+    unordered_map<string, char> codes;
 
     char* pairs = (char*)calloc(50, sizeof(char)); // количество пар вида символ - код
     fgets(pairs, 50, file);
@@ -152,13 +154,13 @@ void decode(const std::string &outputFilename, const std::string &compressedFile
     fgets(exp, 4, file);
     exp[strlen(exp) - 1] = '\0';
 
-    int pairss = std::stoi(pairs);
+    int pairss = stoi(pairs);
     fgetc(file); // перенос строки
     
     for (int i = 0; i < pairss; i++) {
         char symb = fgetc(file);
         char c;
-        std::string code;
+        string code;
         while ((c = fgetc(file)) != '\n') {
             code += c;
         }
@@ -170,11 +172,11 @@ void decode(const std::string &outputFilename, const std::string &compressedFile
     fgetc(file); // перенос строки
 
     char c;
-    std::string buff = "";
+    string buff = "";
 
     while (!feof(file)) {
         c = fgetc(file);
-        std::bitset<8> bs(c);
+        bitset<8> bs(c);
         for (int j = 7; j >= 0; j--){
             if (bs[j] == 1){
                 buff += "1";
@@ -191,7 +193,7 @@ void decode(const std::string &outputFilename, const std::string &compressedFile
     }
 
     const int lastByteEffectiveBit = 1 ;
-    std::bitset<lastByteEffectiveBit> bs(mainByts);
+    bitset<lastByteEffectiveBit> bs(mainByts);
     for (int j = lastByteEffectiveBit - 1; j >= 0; j--){
         if (bs[j] == 1){
             buff += "1";
