@@ -6,16 +6,18 @@
 #include <bitset>
 #include <time.h>
 #include <bitset>
+#include <map>
 
 using namespace std;
 
 vector<Node *> buildHuffmanTree(vector<Node *> &nodes) {
-    if (nodes.empty()) // пустой ли файл
+    if (nodes.empty())
         exit(1);
 
-    vector<Node *> huffmanNodes = nodes; // создание доп вектора, из которого будем удалять обработанные элементы
+    vector<Node *> huffmanNodes = nodes;
 
-    while (huffmanNodes.size() > 1) { 
+    while (huffmanNodes.size() > 1) {
+
         auto left = huffmanNodes[0];
         auto right = huffmanNodes[1];
 
@@ -23,18 +25,28 @@ vector<Node *> buildHuffmanTree(vector<Node *> &nodes) {
         newNode->left = left;
         newNode->right = right;
 
-        huffmanNodes.erase(huffmanNodes.begin(), huffmanNodes.begin() + 2); //стираем обработанные
 
-        auto position = lower_bound(huffmanNodes.begin(), huffmanNodes.end(), newNode, 
-                                    [](Node *a, Node *b) { return a->frequency < b->frequency; }); //лямбда функция, условие сортировки
-//определяем позицию для нового нода. lower bound ищет первое не меньшее элемента 
-// и возвращает позицию, таким образом новый элемент будет всегда слева равных ему
+        huffmanNodes.erase(huffmanNodes.begin(), huffmanNodes.begin() + 2);
+
+
+        auto position = lower_bound(huffmanNodes.begin(), huffmanNodes.end(), newNode,
+                                    [](Node *a, Node *b) {
+                                        return a->frequency < b->frequency;
+                                    });
         huffmanNodes.insert(position, newNode);
     }
 
-    return huffmanNodes;
-}
 
+    if (huffmanNodes.size() == 1) {
+
+        Node *root = new Node('\0', huffmanNodes[0]->frequency);
+        root->left = huffmanNodes[0];
+        root->right = nullptr;
+        return {root};
+    }
+
+    return huffmanNodes; // Возвращаем вектор узлов, если он больше 1
+}
 void generateHuffmanCodes(Node *root, const string &code, unordered_map<char, string> &huffmanCodes) {
     if (!root)
         return;
@@ -49,8 +61,8 @@ void generateHuffmanCodes(Node *root, const string &code, unordered_map<char, st
 
 vector<Node *> readFileAndCreateNodes(const string &filename) {
     ifstream file(filename);
-    unordered_map<char, int> frequencyMap; 
-    
+    unordered_map<char, int> frequencyMap;
+
     // if (file) {
     //     string line;
     //     while (getline(file, line)) {
@@ -66,7 +78,7 @@ vector<Node *> readFileAndCreateNodes(const string &filename) {
             frequencyMap[ch]++;
         }
         file.close(); // с /n
-    
+
     } else {
         cerr << "файл не открылся :( " << filename << endl;
         exit(1);
@@ -81,7 +93,7 @@ vector<Node *> readFileAndCreateNodes(const string &filename) {
 }
 
 void writeEncodedFile(const string &inputFilename, const unordered_map<char, string> &huffmanCodes,
-    const string &compressedFilename) {
+                      const string &compressedFilename) {
     ifstream inputFile(inputFilename);
     ofstream compressedFile(compressedFilename, std::ios::binary);
     // FILE* inputFile = fopen(inputFilename.c_str(), "r");
@@ -105,7 +117,7 @@ void writeEncodedFile(const string &inputFilename, const unordered_map<char, str
     compressedFile << expansion << "\n";
 
     // Запись кодов символов в файл
-    for (const auto &pair : huffmanCodes) {
+    for (const auto &pair: huffmanCodes) {
         compressedFile << pair.first << pair.second << "\n"; // Символ и его код
     }
 
@@ -126,10 +138,10 @@ void writeEncodedFile(const string &inputFilename, const unordered_map<char, str
     while (bitIndex < encodedStr.size()) {
         unsigned char byte = 0;
         for (int i = 0; i < 8 && bitIndex < encodedStr.size(); ++i, ++bitIndex) {
-        byte = (byte << 1) | (encodedStr[bitIndex] == '1' ? 1 : 0);
-        countByts = i;
-    }
-    buffer.push_back(byte);
+            byte = (byte << 1) | (encodedStr[bitIndex] == '1' ? 1 : 0);
+            countByts = i;
+        }
+        buffer.push_back(byte);
     }
     compressedFile << countByts << "\n";
 
@@ -141,22 +153,22 @@ void writeEncodedFile(const string &inputFilename, const unordered_map<char, str
 }
 
 void decode(const string &outputFilename, const string &compressedFilename) {
-    FILE* file = fopen(compressedFilename.c_str(), "rb");
-    FILE* fin = fopen(outputFilename.c_str(), "wb");
+    FILE *file = fopen(compressedFilename.c_str(), "rb");
+    FILE *fin = fopen(outputFilename.c_str(), "wb");
 
-    unordered_map<string, char> codes;
+    map<string, char> codes;
 
-    char* pairs = (char*)calloc(50, sizeof(char)); // количество пар вида символ - код
+    char *pairs = (char *) calloc(50, sizeof(char)); // количество пар вида символ - код
     fgets(pairs, 50, file);
-    pairs[strlen(pairs) - 1] = '\0'; 
+    pairs[strlen(pairs) - 1] = '\0';
 
-    char* exp = (char*)calloc(4, sizeof(char)); // расширение
+    char *exp = (char *) calloc(4, sizeof(char)); // расширение
     fgets(exp, 4, file);
     exp[strlen(exp) - 1] = '\0';
 
     int pairss = stoi(pairs);
     fgetc(file); // перенос строки
-    
+
     for (int i = 0; i < pairss; i++) {
         char symb = fgetc(file);
         char c;
@@ -164,7 +176,7 @@ void decode(const string &outputFilename, const string &compressedFilename) {
         while ((c = fgetc(file)) != '\n') {
             code += c;
         }
-        
+
         codes.insert({code, symb});
     }
 
@@ -177,37 +189,41 @@ void decode(const string &outputFilename, const string &compressedFilename) {
     while (!feof(file)) {
         c = fgetc(file);
         bitset<8> bs(c);
-        for (int j = 7; j >= 0; j--){
-            if (bs[j] == 1){
+        for (int j = 7; j >= 0; j--) {
+            if (bs[j] == 1) {
                 buff += "1";
             } else {
                 buff += "0";
             }
 
-            if (codes.find(buff) != codes.end()) {
+            if (codes.find(buff) != codes.end())
+            {
                 char curr = codes.find(buff)->second;
                 fputc(curr, fin);
                 buff.clear();
             }
         }
+
     }
 
-    const int lastByteEffectiveBit = 1 ;
+    const int lastByteEffectiveBit = 1;
     bitset<lastByteEffectiveBit> bs(mainByts);
-    for (int j = lastByteEffectiveBit - 1; j >= 0; j--){
-        if (bs[j] == 1){
+    for (int j = lastByteEffectiveBit - 1; j >= 0; j--) {
+        if (bs[j] == 1) {
             buff += "1";
         } else {
             buff += "0";
         }
-        if (codes.find(buff.c_str()) != codes.end()){
-        
+        if (codes.find(buff.c_str()) != codes.end()) {
+
             char curr = codes.find(buff)->second;
             fputc(curr, fin);
-            buff.clear(); 
+            buff.clear();
         }
     }
 
     fclose(file);
     fclose(fin);
+    free(exp);
+    free(pairs);
 }

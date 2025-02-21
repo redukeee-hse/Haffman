@@ -26,6 +26,12 @@ int main() {
     }
 
 
+    for (auto elem : huffmanCodes)
+    {
+        cout << elem.first << " " << elem.second << endl;
+    }
+
+
     string compressedFilename = "compressed_output.bin"; // Имя файла для сжатых данных
     writeEncodedFile(inputFilename, huffmanCodes, compressedFilename);
     printf("Time taken to encode: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC); //окончание замера времени, вывод на экран
